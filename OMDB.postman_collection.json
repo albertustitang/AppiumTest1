@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "b183d0b6-1ff5-44be-8aa6-9fb861f8ad39",
+		"name": "OMDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21380135"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Test Search Parameter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.omdbapi.com/?apikey=5b7f16e&i=tt3896198",
+							"protocol": "http",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "5b7f16e"
+								},
+								{
+									"key": "i",
+									"value": "tt3896198"
+								},
+								{
+									"key": "s",
+									"value": "Terminator",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Title & Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.omdbapi.com/?apikey=5b7f16e&t=Terminator&type=movie",
+							"protocol": "http",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "5b7f16e"
+								},
+								{
+									"key": "t",
+									"value": "Terminator"
+								},
+								{
+									"key": "type",
+									"value": "movie"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Title Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Retrieve data with movie title\",function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.Title).to.eql(pm.environment(\"movie-titles\"))\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"movie-titles\", data.MovieTitle);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.omdbapi.com/?apikey=({api-key})&({movie-titles})",
+							"protocol": "http",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "Guardian ",
+									"disabled": true
+								},
+								{
+									"key": "callback",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "plot",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "v",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "i",
+									"value": "tt3896198",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "apikey",
+									"value": "({api-key})"
+								},
+								{
+									"key": "({movie-titles})",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search with parameter s and title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Retrieve data with movie title\",function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.Search[0].Title).to.eql(\"Batman v Superman: Dawn of Justice\");\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.omdbapi.com/?apikey=5b7f16e&s=Superman",
+							"protocol": "http",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "5b7f16e"
+								},
+								{
+									"key": "s",
+									"value": "Superman"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search with parameter s and year",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Retrieve data with movie title\",function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.Search[0].Year).to.eql(\"2016\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Retrieve data with movie type\",function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.Search[0].Type).to.eql(\"movie\");\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.omdbapi.com/?apikey=5b7f16e&s=Superman&t",
+							"protocol": "http",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "5b7f16e"
+								},
+								{
+									"key": "s",
+									"value": "Superman"
+								},
+								{
+									"key": "t",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search with parameter s and type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.omdbapi.com/?apikey=5b7f16e&t=Superman&type=movie",
+							"protocol": "http",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "5b7f16e"
+								},
+								{
+									"key": "t",
+									"value": "Superman"
+								},
+								{
+									"key": "type",
+									"value": "movie"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,34 @@
+(signIn) = //*[@id="MenuContent"]/a[2]
+
+
+(username) = //input[@id='stripes-1483629029']
+(pass) = //input[@name='password']
+(btnSigIn) = //input[@name='signon']
+
+(regisNow) = //a[normalize-space()='Register Now!']
+
+//a[normalize-space()='Register Now!']
+
+/////Register////////
+
+(userId) = //input[@id='stripes-1912783378']
+(newPass) = //input[@name='password']
+(repPass) = //input[@name='repeatedPassword']
+
+(firstName) = //input[@name='account.firstName']
+(lastName) = //input[@name='account.lastName']
+(email) = //input[@name='account.email']
+(add1) = //input[@name='account.address1']
+(add2) = //input[@name='account.address2']
+
+(city) = //input[@name='account.city']
+(state) = //input[@name='account.state']
+(zip) = //input[@name='account.zip']
+(country) = //input[@name='account.country']
+
+(saveAcc)//*[@id="Catalog"]/form/input
+
+
+
+//input[@id='stripes--2032835272']
+document.querySelector("#stripes--2032835272")

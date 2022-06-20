@@ -1,0 +1,7 @@
+Day-18 
+Masuk automation testing dengan Selenium 
+Mencoba selenium ide di chrome
+
+
+List<WebElement> lstUsername = driver.findElements(By.xpath("/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[2]/table[1]/tbody[1]/tr/td/span[@class='list_group-username']"));
+

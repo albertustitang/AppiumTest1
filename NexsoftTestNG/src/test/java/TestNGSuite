@@ -1,0 +1,21 @@
+<?ml version="1.0" encoding="UTF-8"?>
+
+<suite name = "Suite Test">
+
+<test name = "FrontEnd Test">
+
+<classes>
+<class name = "com.nexsoft.testng.frontpage.FrontPageTest"></class>
+</classes>
+
+</test>
+
+<test name = "BackEnd Test">
+
+<classes>
+ <class name = "com.nexsoft.testng.dashboard.CRUDBuilderTest"></class>
+</classes>
+
+</test>
+
+</suite>
