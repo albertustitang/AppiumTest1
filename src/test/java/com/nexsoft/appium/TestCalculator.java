@@ -29,20 +29,20 @@ public class TestCalculator {
 		calc = new CalculatorFunctionTest(driver);
 	}
 
-//	@Test(priority = 1)
-//	public void test_tambah() {
-//		calc.tambah(1, 3);
-//	}
-//
-//	@Test(priority = 2)
-//	public void test_kurang() {
-//		calc.kurang(5, 3);
-//	}
-//
-//	@Test(priority = 3)
-//	public void test_kali() {
-//		calc.kali(5,5);
-//	}
+	@Test(priority = 1)
+	public void test_tambah() {
+		calc.tambah(1, 3);
+	}
+
+	@Test(priority = 2)
+	public void test_kurang() {
+		calc.kurang(5, 3);
+	}
+
+	@Test(priority = 3)
+	public void test_kali() {
+		calc.kali(5,5);
+	}
 
 	@Test(priority = 4)
 	public void test_bagi() {
